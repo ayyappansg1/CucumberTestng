@@ -32,16 +32,3 @@ stages:
             inputs:
               testResultsFiles: '**/surefire-reports/*.xml'
               failTaskOnFailedTests: true
-          
-          - task: SendEmail@0
-            inputs:
-              To: 'ayyappangunasekaran5@gmail.com'
-              CC: 'ayyappangunasekaran5@gmail.com'
-              From: 'ayyappangunasekaran5@gmail.com'
-              Subject: 'Ran from AzureDevops task mail'
-              Body: 'Test result bro'
-              Attachment: '$(System.DefaultWorkingDirectory)/target/surefire-reports/*.xml'
-              SmtpServer: 'smtp.zoho.in'
-              SmtpPort: '465'
-              SmtpUsername: 'ayyappansg1@zohomail.in'
-              SmtpPassword: 'FArvYhxi2Emk'

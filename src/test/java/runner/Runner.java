@@ -87,9 +87,6 @@ public class Runner extends AbstractTestNGCucumberTests {
 	    email.setHostName("smtp.zoho.in");
 	    email.setSmtpPort(465);
 	    email.setSSLOnConnect(true);
-	    email.setAuthentication("ayyappansg1@zohomail.in", "FArvYhxi2Emk");
-	    email.setFrom("ayyappansg1@zohomail.in");
-	    email.addTo("ayyappangunasekaran5@gmail.com");
 	    email.setMsg("Hi sir, Automated Mail");
 	    email.setSubject("HerokuApp automation result-" + emailContent.toString() + "- " + dateAndTime());
 	    email.setSocketConnectionTimeout(60000); 

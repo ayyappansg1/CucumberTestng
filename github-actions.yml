@@ -67,15 +67,3 @@ jobs:
           
       - name: Tear down Docker Compose
         run: docker-compose down
-
-      - name: Send Email with Test Results
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.zoho.in
-          server_port: 465
-          username: ayyappansg1@zohomail.in
-          password: FArvYhxi2Emk
-          subject: "Test Results - ${{ github.run_id }}"
-          body: "Hi Team, \nThe latest test results are available. Please see the attached reports."
-          to: "ayyappangunasekaran5@gmail.com"
-          attachments: "target/surefire-reports/*"
