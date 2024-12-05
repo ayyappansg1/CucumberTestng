@@ -46,11 +46,16 @@ public class RunnerCrossBrowser extends AbstractTestNGCucumberTests{
 	private static final Logger logger=LogManager.getLogger(RunnerCrossBrowser.class);
 	protected MultiPartEmail email;
 
+
+	@BeforeSuite
+	public void aa() {
+		CommonUtils.cleanAllureResults();
+	}
+	
 	@Parameters("browser")
 	@BeforeClass(alwaysRun = true)
 	public void parallelCheck(String browser) throws IOException {
 		logger.info("Before suite running");
-		CommonUtils.cleanAllureResults();
 		CommonUtils.loadProperties(browser);
 		DriverManager.setBrowserName(browser);
 	}

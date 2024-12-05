@@ -39,6 +39,7 @@ import utils.CommonUtils;
 
 @CucumberOptions(dryRun = false, features = "src\\test\\resources\\FeatureFiles", glue = {
 		"stepdefinitions" }, monochrome = true, plugin = { "rerun:target/failed.txt", "json:target/forReporting.json",
+				"json:target/cucumber-reports/cucumber.json",
 				"html:target/sangar.html", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
 tags = "@smoke"
@@ -47,11 +48,14 @@ public class Runner extends AbstractTestNGCucumberTests {
 	private static final Logger logger = LogManager.getLogger(Runner.class);
 	protected MultiPartEmail email;
 
+	@BeforeSuite
+	public void aa() {
+		CommonUtils.cleanAllureResults();
+	}
 	@Parameters("browser")
 	@BeforeClass(alwaysRun = true)
 	public void parallelCheck(String browser) throws IOException {
 		logger.info("Before suite running");
-		CommonUtils.cleanAllureResults();
 		CommonUtils.loadProperties(browser);
 		DriverManager.setBrowserName(browser);
 	}
