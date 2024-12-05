@@ -41,7 +41,7 @@ import utils.CommonUtils;
 		"stepdefinitions" }, monochrome = true, plugin = { "rerun:target/failed.txt", "json:target/forReporting.json",
 				"html:target/sangar.html", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
-tags = "not @smoke"
+tags = "@smoke"
 )
 public class Runner extends AbstractTestNGCucumberTests {
 	private static final Logger logger = LogManager.getLogger(Runner.class);
